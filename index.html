@@ -96,11 +96,15 @@ nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;display:flex;alig
 .tier.popular{background:var(--grey);border-top:3px solid var(--orange);}
 .pop-badge{position:absolute;top:-1px;right:2rem;background:var(--orange);color:var(--white);font-family:'DM Mono',monospace;font-size:.53rem;letter-spacing:.18em;text-transform:uppercase;padding:.32rem .75rem;}
 .tier-name{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;}
+.tier-was{font-family:'DM Mono',monospace;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);text-decoration:line-through;margin-bottom:.3rem;}
 .tier-price{display:flex;align-items:flex-start;line-height:1;margin-bottom:.3rem;}
 .p-cur{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--orange);padding-top:.9rem;}
 .p-amt{font-family:'Bebas Neue',sans-serif;font-size:5.5rem;color:var(--white);letter-spacing:-.02em;line-height:1;}
 .p-dec{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:rgba(245,240,232,.7);letter-spacing:0;line-height:1;padding-top:.6rem;}
 .p-per{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:300;color:var(--muted);margin-left:.4rem;align-self:flex-end;padding-bottom:.6rem;}
+.tier-discount{display:inline-flex;align-items:center;gap:.5rem;background:rgba(232,82,26,.12);border:1px solid rgba(232,82,26,.25);padding:.35rem .7rem;margin-bottom:.8rem;}
+.tier-discount-text{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);}
+.tier.popular .tier-discount{background:rgba(232,82,26,.18);border-color:rgba(232,82,26,.4);}
 .tier-div{height:1px;background:rgba(255,255,255,.06);margin:1.5rem 0;}
 .tier-features{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-bottom:2.5rem;}
 .tier-features li{display:flex;gap:.75rem;font-size:.83rem;color:rgba(245,240,232,.58);line-height:1.45;align-items:flex-start;}
@@ -286,7 +290,9 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 <div class="tiers">
 <div class="tier">
 <div class="tier-name">Starter</div>
+<div class="tier-was">Usually £55/month</div>
 <div class="tier-price"><span class="p-cur">£</span><span class="p-amt">39</span><span class="p-dec">.00</span><span class="p-per">/month</span></div>
+<div class="tier-discount"><span class="tier-discount-text">⚡ Q2 Launch Offer — Save £16/mo</span></div>
 <div class="tier-div"></div>
 <ul class="tier-features">
 <li>Weekly personalised training plan</li>
@@ -300,7 +306,9 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 <div class="tier popular">
 <div class="pop-badge">Most Popular</div>
 <div class="tier-name">Pro</div>
+<div class="tier-was">Usually £110/month</div>
 <div class="tier-price"><span class="p-cur">£</span><span class="p-amt">79</span><span class="p-dec">.00</span><span class="p-per">/month</span></div>
+<div class="tier-discount"><span class="tier-discount-text">⚡ Q2 Launch Offer — Save £31/mo</span></div>
 <div class="tier-div"></div>
 <ul class="tier-features">
 <li>Everything in Starter</li>
@@ -314,7 +322,9 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 </div>
 <div class="tier">
 <div class="tier-name">Elite</div>
+<div class="tier-was">Usually £199/month</div>
 <div class="tier-price"><span class="p-cur">£</span><span class="p-amt">149</span><span class="p-dec">.00</span><span class="p-per">/month</span></div>
+<div class="tier-discount"><span class="tier-discount-text">⚡ Q2 Launch Offer — Save £50/mo</span></div>
 <div class="tier-div"></div>
 <ul class="tier-features">
 <li>Everything in Pro</li>

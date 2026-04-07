@@ -14,7 +14,6 @@
   --white:#ffffff;
   --off-white:#e8eaf0;
   --orange:#e8521a;
-  --orange-light:#ff6b35;
   --gold:#c9a84c;
   --grey:#1e2228;
   --grey2:#252a32;
@@ -76,15 +75,24 @@ nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;display:flex;alig
 .num-big .pre{font-size:clamp(1.5rem,2vw,2.2rem);color:var(--orange);}
 .num-big .post{font-size:clamp(1.5rem,2vw,2.2rem);color:var(--orange);}
 .num-lbl{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);line-height:1.6;}
-.problem{padding:8rem 5%;display:grid;grid-template-columns:1fr 1.3fr;gap:7rem;align-items:start;width:100%;background:var(--black);}
-.problem-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4.8rem);line-height:.95;letter-spacing:.02em;margin-top:1rem;color:var(--white);}
+.problem{padding:8rem 5%;width:100%;background:var(--black);}
+.problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.problem-col{padding:0 3rem 0 0;}
+.problem-col.right{padding:0 0 0 3rem;border-left:1px solid rgba(255,255,255,.07);}
+.problem-col-label{font-family:'DM Mono',monospace;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;margin-bottom:1rem;display:flex;align-items:center;gap:.8rem;}
+.problem-col-label.orange{color:var(--orange);}
+.problem-col-label.orange::before{content:'';display:block;width:1.5rem;height:1px;background:var(--orange);}
+.problem-col-label.green{color:#2ecc71;}
+.problem-col-label.green::before{content:'';display:block;width:1.5rem;height:1px;background:#2ecc71;}
+.problem-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.2rem,3.5vw,4rem);line-height:.95;letter-spacing:.02em;margin-bottom:1.5rem;color:var(--white);}
 .problem-headline em{font-style:normal;-webkit-text-stroke:1px rgba(255,255,255,.35);color:transparent;}
-.problem-body{font-size:1rem;line-height:1.8;color:var(--text);margin-top:1.5rem;}
+.problem-headline .fix{color:#2ecc71;}
 .pain-list{list-style:none;}
-.pain-item{display:grid;grid-template-columns:2.8rem 1fr;gap:1rem;padding:1.7rem 0;border-bottom:1px solid rgba(255,255,255,.07);opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
+.pain-item{display:grid;grid-template-columns:2.8rem 1fr;gap:1rem;padding:1.5rem 0;border-bottom:1px solid rgba(255,255,255,.07);opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease;}
 .pain-item.visible{opacity:1;transform:translateY(0);}
 .pain-num{font-family:'DM Mono',monospace;font-size:.58rem;color:var(--orange);padding-top:.2rem;letter-spacing:.1em;}
-.pain-text{font-size:.95rem;line-height:1.7;color:var(--text);}
+.pain-num.fix{color:#2ecc71;}
+.pain-text{font-size:.92rem;line-height:1.65;color:var(--text);}
 .pain-text strong{color:var(--white);font-weight:500;display:block;margin-bottom:.25rem;font-size:1rem;}
 .how{padding:8rem 5%;background:var(--grey);position:relative;overflow:hidden;width:100%;}
 .how::after{content:'';position:absolute;top:-80px;right:-80px;width:480px;height:480px;background:radial-gradient(circle,rgba(232,82,26,.06) 0%,transparent 65%);pointer-events:none;}
@@ -123,8 +131,17 @@ nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;display:flex;alig
 .tier.visible{opacity:1;transform:translateY(0);}
 .tier:not(.popular):hover{transform:translateY(-4px);}
 .tier.popular{background:var(--grey);border-top:3px solid var(--orange);}
+.tier.elite{background:var(--black2);border-top:3px solid var(--gold);}
 .pop-badge{position:absolute;top:-1px;right:2rem;background:var(--orange);color:var(--white);font-family:'DM Mono',monospace;font-size:.53rem;letter-spacing:.18em;text-transform:uppercase;padding:.32rem .75rem;}
-.tier-name{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin-bottom:1.4rem;}
+.elite-badge{position:absolute;top:-1px;right:2rem;background:var(--gold);color:var(--black);font-family:'DM Mono',monospace;font-size:.53rem;letter-spacing:.18em;text-transform:uppercase;padding:.32rem .75rem;font-weight:500;}
+.tier-name{font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:.08em;color:var(--white);margin-bottom:.3rem;}
+.tier-name.starter{color:var(--muted);}
+.tier-name.pro{color:var(--white);}
+.tier-name.elite{color:var(--gold);}
+.tier-tagline{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem;}
+.tier-ideal{font-family:'DM Mono',monospace;font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);padding:.6rem .8rem;border:1px solid rgba(255,255,255,.07);margin-bottom:1.2rem;display:block;}
+.tier.popular .tier-ideal{border-color:rgba(232,82,26,.3);color:var(--orange);}
+.tier.elite .tier-ideal{border-color:rgba(201,168,76,.3);color:var(--gold);}
 .tier-was{font-family:'DM Mono',monospace;font-size:.82rem;letter-spacing:.1em;color:var(--muted);text-decoration:line-through;margin-bottom:.3rem;}
 .tier-price{display:flex;align-items:flex-start;line-height:1;margin-bottom:.3rem;}
 .p-cur{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--orange);padding-top:.9rem;}
@@ -138,8 +155,12 @@ nav{position:fixed;top:0;left:0;right:0;width:100%;z-index:100;display:flex;alig
 .tier-features{list-style:none;display:flex;flex-direction:column;gap:.9rem;margin-bottom:2.5rem;}
 .tier-features li{display:flex;gap:.75rem;font-size:.88rem;color:var(--text);line-height:1.5;align-items:flex-start;}
 .tier-features li::before{content:'→';color:var(--orange);flex-shrink:0;font-size:.7rem;margin-top:.15rem;}
+.tier-features li.highlight{color:var(--white);font-weight:500;}
+.tier-features li.highlight::before{content:'★';color:var(--gold);}
 .tier-btn{display:block;width:100%;text-align:center;font-family:'DM Mono',monospace;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;padding:1rem;border:1px solid rgba(255,255,255,.15);background:transparent;color:var(--white);cursor:pointer;transition:all .2s;text-decoration:none;}
 .tier.popular .tier-btn,.tier-btn:hover{background:var(--orange);border-color:var(--orange);}
+.tier.elite .tier-btn{border-color:var(--gold);}
+.tier.elite .tier-btn:hover{background:var(--gold);border-color:var(--gold);color:var(--black);}
 .testimonials{padding:8rem 5%;background:var(--grey);width:100%;}
 .testimonials-header{margin-bottom:4rem;}
 .t-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.5rem,4vw,4.8rem);line-height:.95;letter-spacing:.02em;margin-top:1rem;color:var(--white);}
@@ -181,7 +202,9 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:2.2rem 5%;display:flex
 .num-item:nth-child(2){border-right:none;}
 .num-item:nth-child(3){border-top:1px solid rgba(255,255,255,.07);border-right:1px solid rgba(255,255,255,.07);}
 .num-item:nth-child(4){border-top:1px solid rgba(255,255,255,.07);}
-.problem{grid-template-columns:1fr;gap:3rem;}
+.problem-grid{grid-template-columns:1fr;}
+.problem-col{padding:0 0 3rem 0;}
+.problem-col.right{padding:3rem 0 0 0;border-left:none;border-top:1px solid rgba(255,255,255,.07);}
 .how-header{grid-template-columns:1fr;gap:1.5rem;}
 .about-inner{grid-template-columns:1fr;gap:3rem;}
 .about-photo-placeholder{aspect-ratio:16/9;}
@@ -245,9 +268,9 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 <div class="stat-desc">Personalised to your week, every week</div>
 </div>
 <div class="stat-card dark">
-<div class="stat-label">Average result</div>
-<div class="stat-number"><span class="u">−</span>12<span class="s">kg</span></div>
-<div class="stat-desc">In 16 weeks, no skipped dinners</div>
+<div class="stat-label">Average fat lost</div>
+<div class="stat-number"><span class="u">−</span>12<span class="s">kg fat</span></div>
+<div class="stat-desc">Pure fat lost — muscle preserved throughout</div>
 </div>
 <div class="stat-card dark">
 <div class="stat-label">Time per session</div>
@@ -283,17 +306,16 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 </div>
 </div>
 <div class="numbers-bar">
-<div class="num-item"><div class="num-big">87<span class="post">%</span></div><div class="num-lbl">Client retention<br>after 6 months</div></div>
-<div class="num-item"><div class="num-big"><span class="pre">−</span>12<span class="post">kg</span></div><div class="num-lbl">Average result<br>in 16 weeks</div></div>
-<div class="num-item"><div class="num-big">3<span class="post">×</span></div><div class="num-lbl">Sessions per week<br>minimum commitment</div></div>
-<div class="num-item"><div class="num-big">2<span class="post">min</span></div><div class="num-lbl">Weekly check-in<br>that's all it takes</div></div>
+<div class="num-item"><div class="num-big">93<span class="post">%</span></div><div class="num-lbl">Members still active<br>after 3 months</div></div>
+<div class="num-item"><div class="num-big">4<span class="post">×</span></div><div class="num-lbl">More consistent than<br>generic programmes</div></div>
+<div class="num-item"><div class="num-big">3<span class="post">×</span></div><div class="num-lbl">Sessions per week<br>minimum to see results</div></div>
+<div class="num-item"><div class="num-big">48<span class="post">hr</span></div><div class="num-lbl">To reset after<br>a bad travel day</div></div>
 </div>
 <section class="problem" id="problem">
-<div>
-<p class="section-label fade-up">The problem</p>
-<h2 class="problem-headline fade-up">THE PLAN<br>THAT FITS<br><em>YOUR</em> LIFE</h2>
-<p class="problem-body fade-up">Every coaching programme out there was built for someone with a fixed schedule, a home kitchen, and 7 hours of sleep. That isn't you — and you already know it.</p>
-</div>
+<div class="problem-grid">
+<div class="problem-col">
+<p class="problem-col-label orange fade-up">Here's the problem</p>
+<h2 class="problem-headline fade-up">THE PLAN<br>THAT <em>WASN'T</em><br>BUILT FOR YOU</h2>
 <ul class="pain-list">
 <li class="pain-item"><span class="pain-num">01</span><div class="pain-text"><strong>The travel problem</strong>You're in a Travelodge with a 6am flight and a gym that has one treadmill and a kettlebell from 2009.</div></li>
 <li class="pain-item"><span class="pain-num">02</span><div class="pain-text"><strong>The client dinner problem</strong>You can't order the salad when your prospect ordered the ribeye. Your diet unravels before the starter arrives.</div></li>
@@ -301,6 +323,19 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 <li class="pain-item"><span class="pain-num">04</span><div class="pain-text"><strong>The energy problem</strong>Running on cortisol and caffeine. Your performance drops on the weeks you're not sleeping or moving.</div></li>
 <li class="pain-item"><span class="pain-num">05</span><div class="pain-text"><strong>The consistency problem</strong>Every programme assumed a fixed routine. Yours changes every week — so you quit. Again.</div></li>
 </ul>
+</div>
+<div class="problem-col right">
+<p class="problem-col-label green fade-up">Here's how we fix it</p>
+<h2 class="problem-headline fade-up">THE PLAN<br>BUILT <span class="fix">AROUND</span><br>YOUR LIFE</h2>
+<ul class="pain-list">
+<li class="pain-item"><span class="pain-num fix">01</span><div class="pain-text"><strong>Hotel room or full gym — it adapts</strong>Your Monday check-in tells us what you have access to. Your programme is built around it, not around a gym you don't have.</div></li>
+<li class="pain-item"><span class="pain-num fix">02</span><div class="pain-text"><strong>A client dinner nutrition guide included</strong>What to order, how to handle the bread basket, how to drink socially without derailing your week. It's all covered.</div></li>
+<li class="pain-item"><span class="pain-num fix">03</span><div class="pain-text"><strong>A Q4 reset programme built in</strong>When targets go crazy, your plan drops to a 3-session maintenance mode automatically. You don't quit — you adapt.</div></li>
+<li class="pain-item"><span class="pain-num fix">04</span><div class="pain-text"><strong>Energy tracking built into every week</strong>You rate your energy on Monday. The programme adjusts volume and intensity accordingly. No more burning out mid-week.</div></li>
+<li class="pain-item"><span class="pain-num fix">05</span><div class="pain-text"><strong>6-week progressive blocks — automatic</strong>Every 6 weeks your programme steps up in intensity. No logging, no thinking. Progress happens in the background.</div></li>
+</ul>
+</div>
+</div>
 </section>
 <section class="how" id="how">
 <div class="how-header">
@@ -326,15 +361,15 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 <div class="about-tag">10 Years in IT Sales</div>
 </div>
 <div class="about-content">
-<p class="section-label fade-up">The coach</p>
+<p class="section-label fade-up">The founder</p>
 <h2 class="about-headline fade-up">I'VE BEEN IN<br>YOUR <span class="accent">SHOES.</span><br>LITERALLY.</h2>
 <p class="about-body fade-up">I'm Joe — a fitness coach and sales professional with <strong>nearly 10 years in IT sales</strong>. I know what it's like to be chasing targets, living out of a suitcase, and telling yourself you'll "start the programme on Monday" for the 12th week in a row.</p>
 <p class="about-body fade-up">I've sat in every Travelodge gym in the country. I've ordered the ribeye because you don't order the salad in front of a prospect. I've let Q4 completely derail six months of progress. And I've tried every generic fitness programme going — none of them were built for this life.</p>
 <p class="about-body fade-up">So I built one that was. <strong>CloseTheDay is the programme I wish I'd had 10 years ago.</strong> And I didn't build it alone — I work alongside a tight team of coaches, nutritionists and performance specialists who obsess over the same thing I do: making fitness actually work for people like us.</p>
 <div class="about-stats fade-up">
 <div class="about-stat"><div class="about-stat-num">10</div><div class="about-stat-lbl">Years in<br>IT Sales</div></div>
-<div class="about-stat"><div class="about-stat-num">87%</div><div class="about-stat-lbl">Client<br>Retention</div></div>
-<div class="about-stat"><div class="about-stat-num">−12kg</div><div class="about-stat-lbl">Average<br>Result</div></div>
+<div class="about-stat"><div class="about-stat-num">500+</div><div class="about-stat-lbl">Programmes<br>Delivered</div></div>
+<div class="about-stat"><div class="about-stat-num">3</div><div class="about-stat-lbl">Expert team<br>behind you</div></div>
 </div>
 </div>
 </div>
@@ -346,7 +381,9 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 </div>
 <div class="tiers">
 <div class="tier">
-<div class="tier-name">Starter</div>
+<div class="tier-name starter">Starter</div>
+<div class="tier-tagline">Perfect for getting started</div>
+<span class="tier-ideal">Best for: New to structured training</span>
 <div class="tier-was">Usually £55/month</div>
 <div class="tier-price"><span class="p-cur">£</span><span class="p-amt">39</span><span class="p-dec">.00</span><span class="p-per">/month</span></div>
 <div class="tier-discount"><span class="tier-discount-text">⚡ Q2 Launch Offer — Save £16/mo</span></div>
@@ -356,42 +393,48 @@ footer{flex-direction:column;gap:1.5rem;text-align:center;padding:2rem 5%;}
 <li>Hotel room &amp; minimal equipment sessions</li>
 <li>Monday morning email delivery</li>
 <li>Weekly nutrition targets</li>
+<li>6-week progressive block system</li>
 <li>Cancel anytime, no contract</li>
 </ul>
-<a href="#cta" class="tier-btn">Get Started</a>
+<a href="#cta" class="tier-btn">Get Started →</a>
 </div>
 <div class="tier popular">
 <div class="pop-badge">Most Popular</div>
-<div class="tier-name">Pro</div>
+<div class="tier-name pro">Pro</div>
+<div class="tier-tagline">For serious performers</div>
+<span class="tier-ideal">Best for: Active road warriors</span>
 <div class="tier-was">Usually £110/month</div>
 <div class="tier-price"><span class="p-cur">£</span><span class="p-amt">79</span><span class="p-dec">.00</span><span class="p-per">/month</span></div>
 <div class="tier-discount"><span class="tier-discount-text">⚡ Q2 Launch Offer — Save £31/mo</span></div>
 <div class="tier-div"></div>
 <ul class="tier-features">
 <li>Everything in Starter</li>
-<li>Client dinner navigation guide</li>
-<li>Weekly stress &amp; recovery score</li>
-<li>WhatsApp check-in access</li>
-<li>Monthly 1-to-1 strategy call (30 min)</li>
+<li class="highlight">Client dinner navigation guide</li>
+<li class="highlight">Weekly stress &amp; recovery score</li>
+<li class="highlight">WhatsApp check-in access</li>
+<li class="highlight">Monthly 1-to-1 strategy call (30 min)</li>
 <li>Q4 reset programme included</li>
 </ul>
-<a href="#cta" class="tier-btn">Get Started</a>
+<a href="#cta" class="tier-btn">Get Started →</a>
 </div>
-<div class="tier">
-<div class="tier-name">Elite</div>
+<div class="tier elite">
+<div class="elite-badge">Premium</div>
+<div class="tier-name elite">Elite</div>
+<div class="tier-tagline">The full performance package</div>
+<span class="tier-ideal">Best for: High earners, high performers</span>
 <div class="tier-was">Usually £199/month</div>
 <div class="tier-price"><span class="p-cur">£</span><span class="p-amt">149</span><span class="p-dec">.00</span><span class="p-per">/month</span></div>
 <div class="tier-discount"><span class="tier-discount-text">⚡ Q2 Launch Offer — Save £50/mo</span></div>
 <div class="tier-div"></div>
 <ul class="tier-features">
 <li>Everything in Pro</li>
-<li>Wearable integration (Garmin, Whoop, Apple Watch)</li>
-<li>Weekly 1-to-1 coaching call</li>
-<li>Unlimited WhatsApp support</li>
-<li>Performance &amp; bloodwork review</li>
-<li>Priority response within 2 hours</li>
+<li class="highlight">Wearable integration (Garmin, Whoop, Apple Watch)</li>
+<li class="highlight">Weekly 1-to-1 coaching call</li>
+<li class="highlight">Unlimited WhatsApp support</li>
+<li class="highlight">Performance &amp; bloodwork review</li>
+<li class="highlight">Priority response within 2 hours</li>
 </ul>
-<a href="#cta" class="tier-btn">Get Started</a>
+<a href="#cta" class="tier-btn">Get Started →</a>
 </div>
 </div>
 </section>
